@@ -3,6 +3,8 @@ Article Edition
 </h1>
 
 <%= form_for @article do |f| %>
+
+<%=render 'form'%>
   <p>
     <%=f.label :title %>
     <%=f.text_field :title %>
