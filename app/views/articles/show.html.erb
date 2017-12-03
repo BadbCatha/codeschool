@@ -1,6 +1,5 @@
-<h1>
-Article
-</h1>
+<h1>Article</h1>
+
 <p>
 	<strong>Title:</strong>
 	<%= @article.title %>
@@ -10,6 +9,23 @@ Article
 	<strong>Text:</strong>
 	<%= @article.text %>
 </p>
+
+
+
+<% @article.comments.each do |comment| %>
+<p></p>
+
+<p>
+	<strong>Commenter:</strong>
+	<%= comment.commenter %>
+</p>
+
+<p>
+	<strong>Comment:</strong>
+	<%= comment.body %>
+</p>
+<% end %>
+
 
 <%= form_for(@article.comments.build) do |f| %>
  <%=f.hidden_field :article_id %> 
@@ -25,11 +41,13 @@ Article
   <%=f.text_area :body %>
 </p>
 
-
 <p>
   <%=f.submit %>
 </p>
 <% end %>
+
+
+
 <p> 
 <h2><%= link_to 'Back', articles_path %></h2>
 </p>
