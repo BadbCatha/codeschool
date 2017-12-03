@@ -11,6 +11,25 @@ Article
 	<%= @article.text %>
 </p>
 
+<%= form_for(@article.comments.build) do |f| %>
+ <%=f.hidden_field :article_id %> 
+<%=render 'error_messsages'%>
+
+<p>
+  <b> <%=f.label :commenter %> </b>
+  <%=f.text_field :commenter %> 
+</p>
+
+<p>
+  <b> <%=f.label :body %> </b>
+  <%=f.text_area :body %>
+</p>
+
+
+<p>
+  <%=f.submit %>
+</p>
+<% end %>
 <p> 
 <h2><%= link_to 'Back', articles_path %></h2>
 </p>
