@@ -10,7 +10,7 @@ class ArticlesController < ApplicationController
  end
 
  def create
- 	article_params = params.require(:article).permit(:title, :text)
+ 	
  	@article = Article.new(article_params)
  	
  	if @article.save
@@ -32,7 +32,6 @@ class ArticlesController < ApplicationController
   end
 
  def update
- 	article_params = params.require(:article).permit(:title, :text)
  	@article = Article.find(params[:id])
  	@article.attributes = article_params
  	if @article.save
@@ -45,6 +44,12 @@ class ArticlesController < ApplicationController
   	@article = Article.find(params[:id])
   	@article.destroy
   	redirect_to articles_path
+  end
+
+private
+
+  def article_params 
+  	params.require(:article).permit(:title, :text)
   end
 
 end
