@@ -1,27 +1,6 @@
-<h1>
-Article Edition
-</h1>
+<h1>Article Edition</h1>
 
-<%= form_for @article do |f| %>
-
-<%=render 'error_messsages'%>
-  <p>
-    <%=f.label :title %>
-    <%=f.text_field :title %>
-  </p>
-
-  <p>
-    <%=f.label :text %>
-    <%=f.text_area :text %>
-  </p>
-
-
-   <p>
-    <%=f.submit %>
-    
-  </p>
-
-<% end %>
+<%=render 'form'%>
 
 
 
