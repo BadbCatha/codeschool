@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
 
 
  def show
- 
+ @comment = Comment.new
  end
 
   def edit
@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
   def destroy
   	
   	@article.destroy
-  	redirect_to articles_path
+  	redirect_to articles_path(@article)
   end
 
 private
