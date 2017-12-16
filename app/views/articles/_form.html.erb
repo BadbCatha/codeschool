@@ -1,19 +1,21 @@
 <%= form_for @article do |f| %>
 <%=render 'common/error_messsages', model: @article %>
-  <p>
+
+<form class="form-horizontal" action="/action_page.php">
+<div class="form-group">
    <b> <%=f.label :title %> </b>
-     <%=f.text_field :title %> 
-  </p>
+     <%=f.text_field :title, class: "form-control" %> 
+ 
 
-  <p>
+  <div class="form-group">
    <b> <%=f.label :text %> </b>
-    <%=f.text_area :text %>
-  </p>
+    <%=f.text_area :text, class: "form-control" %>
+  </div>
 
 
-   <p>
+  <div class="form-group">
     <%=f.submit %>
     
-  </p>
+  </div>
 
 <% end %>
