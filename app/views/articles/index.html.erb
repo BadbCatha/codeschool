@@ -1,5 +1,19 @@
 <h1>List of Articles </h1>
+<p> 
+<h2><%= link_to 'Write something new', new_article_path %></h2>
+</p>
+<%= form_tag articles_path, method: :get do %>
+  <div class="input-group">
+    <%= text_field_tag :q, params[:q], class: "form-control" %>
+    <span class="input-group-btn">
+      <%= submit_tag "Search", class: "btn btn-default" %>
+    </span>
+  </div>
+<% end %>
 
+
+</div>
+	
 <div class="list-group">
 
 <% @articles.each do |article| %>
@@ -19,12 +33,13 @@
 
 
 <% end %>
-</div>
-	
 
-
-<p> 
-<h2><%= link_to 'Write something new', new_article_path %></h2>
+<p>
+	<h3><%= link_to 'Back', articles_path %></h3>
 </p>
+
+
+
+
 
 <!--/views/articles/index.html.erb -->
