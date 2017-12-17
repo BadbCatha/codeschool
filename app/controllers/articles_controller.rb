@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
 
  def create
  	
- 	@article = Article.new(article_params)
+ 	@article = Article.new(permitted_attributes(Article))
  	@article.author = current_user
 
  	if @article.save
@@ -42,9 +42,8 @@ class ArticlesController < ApplicationController
 
  def update
  	
- 	@article.attributes = article_params
- 	if @article.save
- 		redirect_to article_path(@article)
+ 	if @article.update(permitted_attributes(@article))
+ 	 		redirect_to article_path(@article)
  	else
  		render "edit"
  	end
@@ -57,19 +56,16 @@ class ArticlesController < ApplicationController
 
 private
 
-  def article_params 
-  	params.require(:article).permit(:title, :text, :tags, :author)
-  end
+  # def article_params 
+  # 	params.require(:article).permit(:title, :text, :tags, :author)
+  # end
 
 	def find_article
   		@article =  Article.find(params[:id])
 	end
 
   def authorize_article
-    if @article.author != current_user
-      redirect_to articles_path, alert: "Wypad!"
-
-    end
+    authorize @article
   end
 
 end
