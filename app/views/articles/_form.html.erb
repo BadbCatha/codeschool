@@ -1,6 +1,8 @@
 <%= form_for @article do |f| %>
 <%=render 'common/error_messsages', model: @article %>
 
+
+
 <div class="form-group">
    <b> <%=f.label :title %> </b>
      <%=f.text_field :title, class: "form-control" %> 
