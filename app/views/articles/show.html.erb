@@ -4,17 +4,24 @@
 	<strong>Title:</strong>
 	<%= @article.title %>
 </p>
-
 <p>
 	<strong>Author:</strong>
 	<%= @article.author %>
 </p>
-
-
 <p>
 	<strong>Text:</strong>
 	<%= @article.text %>
 </p>
+
+<%= pluralize(@article.likes.count, "person") %>
+                                      
+
+<% if @like.persisted? %>
+  <%= link_to "Unlike",  article_like_path(@article, @like), method: :delete,class: "btn btn-danger" %>
+<% else %>
+  <%= link_to "Like",  article_likes_path(@article), method: :post, class: "btn btn-info" %>
+ 
+<% end %>
 
 
 <h2>Comments</h2>

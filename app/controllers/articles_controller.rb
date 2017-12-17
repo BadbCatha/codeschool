@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
  before_action :authorize_article, only: [:edit, :update, :destroy]
 
  def index
-  @articles = Article.all.order(id: :asc)
+  @articles = Article.includes(:author).order(id: :desc)
   if params[:q].present?
  	  @articles = @articles.select do |article|
      article.tags.include?(params[:q])
@@ -11,9 +11,11 @@ class ArticlesController < ApplicationController
   end
  end
 
+
  def new
  	@article = Article.new
  end
+
 
  def create
  	
@@ -24,7 +26,6 @@ class ArticlesController < ApplicationController
  	 	redirect_to article_path(@article)
  	else
  		render "new"
-
  	end
 
  end
@@ -32,6 +33,7 @@ class ArticlesController < ApplicationController
 
  def show
  @comment = Comment.new(commenter: session[:commenter] )
+ @like = Like.find_or_initialize_by(article: @article, user: current_user)
  end
 
   def edit
