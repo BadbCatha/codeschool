@@ -33,7 +33,7 @@ gem 'jbuilder', '~> 2.5'
 
 
 gem 'jquery-rails'
-gem  'carrierwave', '~> 1.0'
+gem  'carrierwave', '~> 1.2'
 gem 'cloudinary'
 
 # Use Capistrano for deployment
