@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20180127084341) do
     t.datetime "updated_at", null: false
     t.text "tags", default: [], array: true
     t.bigint "author_id"
-    t.string "avatar"
+    t.string "banner"
     t.index ["author_id"], name: "index_articles_on_author_id"
   end
 
