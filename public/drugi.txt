@@ -1,0 +1,5 @@
+{
+  "var1":"hello from json",
+  "var2":"value"
+}
+
