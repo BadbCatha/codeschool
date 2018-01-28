@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
  def article_commented(article)
- 	@article = article
+ 	@article = Article.find(article_id)
  	mail subject: "Artykuł został skomentowany", to: @article.author.email
  end
 end
