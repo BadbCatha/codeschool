@@ -36,9 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem  'carrierwave', '~> 1.2'
 gem 'cloudinary'
-
-gem 'fullcalendar-rails'
-gem 'momentjs-rails'
+gem 'sidekiq'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
