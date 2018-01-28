@@ -1,3 +1,5 @@
-	
-CLOUDINARY_URL=
+ # Credentials for cloud image storage service
+ CLOUDINARY_URL=
 
+SENDGRID_USERNAME=
+SENDGRID_PASSWORD=

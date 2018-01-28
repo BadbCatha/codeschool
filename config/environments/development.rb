@@ -26,9 +26,11 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :letter_opener
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.perform_caching = false
 
@@ -53,3 +55,12 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
+ActionMailer::Base.smtp_settings = {
+  :user_name => 'SENDGRID_USERNAME',
+  :password => 'SENDGRIDPASSWORD',
+  :domain => 'herokuapp.com',
+  :address => 'smtp.sendgrid.net',
+  :port => 587,
+  :authentication => :plain,
+  :enable_starttls_auto => true
+}

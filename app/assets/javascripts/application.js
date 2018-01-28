@@ -35,6 +35,8 @@
 // 		document.getElementById("wynik").innerHTML = wynik }) 
 // });
 
+
+
 window.addEventListener("load", function() {
   var elements = document.querySelectorAll('.summary');
   for(var i = 0; i < elements.length; i++) {
@@ -50,3 +52,7 @@ window.addEventListener("load", function() {
     })
   }
 });
+
+//= require moment 
+//= require fullcalendar
+$('#calendar').fullCalendar({});

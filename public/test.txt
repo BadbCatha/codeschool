@@ -1,1 +1,4 @@
-test
+{
+	"message": "Example",
+	"myArray"
+}

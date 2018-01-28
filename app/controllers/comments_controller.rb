@@ -6,6 +6,7 @@ def create
     @comment = Comment.new(article_id: @article.id)
     @comment.attributes = comment_params
     if @comment.save
+      UserMailer.article_commented(@article).deliver_now
       session[:commenter] = @comment.commenter
     	redirect_to article_path(@comment.article)
 
